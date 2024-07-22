@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>887,713</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1102,1139.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -44,6 +44,9 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Platform.SyncObjects</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,28 +97,66 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="512,648" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1112,1074.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: botsDNA-Notary" sap:VirtualizedContainerService.HintSize="450,345" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="42847c2a-2e34-4faf-81b1-69efccee6afd" Version="V2" WindowResize="Maximize">
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1050,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: botsDNA-Notary" sap:VirtualizedContainerService.HintSize="1050,779.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="42847c2a-2e34-4faf-81b1-69efccee6afd" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,105" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,537.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'FILL NOTARY'" sap:VirtualizedContainerService.HintSize="954,449.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="42847c2a-2e34-4faf-81b1-69efccee6afd" Timeout="[convert.ToDouble(in_Config(&quot;TimeOut&quot;).ToString)]" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears : Browser appears" sap:VirtualizedContainerService.HintSize="450,138.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message : Browser opened" sap:VirtualizedContainerService.HintSize="388,50.666666666666664" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening browser&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear : Browser does not appear" sap:VirtualizedContainerService.HintSize="450,205.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw : System exception" Exception="[new SystemException(in_Config(&quot;SystemException&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://botsdna.com/notaries/" DesignTimeRectangle="23, 282, 1871, 815" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;webctrl tag='CENTER' visibleinnertext='&amp;#x9;&amp;#xA;FILL NOTARY ADVOCATE Details&amp;#xA;Requirement | AP-ADVOCATES.xlsx | Solution | End2End(Source Code)&amp;#xA;NOTARY ADVOCATE NAME&amp;#x9;&amp;#xA;AREA OF PRACTICE&amp;#x9;&amp;#xA;District&amp;#x9;&amp;#xA;VIZIANAGARAM&amp;#xA;VISAKHAPATNAM&amp;#xA;EAST GODAVARI&amp;#xA;WEST GODAVARI&amp;#xA;KRISHNA&amp;#xA;GUNTUR&amp;#xA;PRAKASAM&amp;#xA;NELLORE&amp;#xA;CHITTOOR&amp;#xA;ANANTHAPURAM&amp;#xA;KADAPA&amp;#xA;KURNOOL&amp;#xA;DONE BY GOVT&amp;#xA;&amp;#xA;&amp;#x9;&amp;#xA;&amp;#x9;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='CENTER' visibleinnertext='&amp;#x9;&amp;#xA;FILL NOTARY ADVOCATE Details&amp;#xA;Requirement | AP-ADVOCATES.xlsx | Solution | End2End(Source Code)&amp;#xA;NOTARY ADVOCATE NAME&amp;#x9;&amp;#xA;AREA OF PRACTICE&amp;#x9;&amp;#xA;District&amp;#x9;&amp;#xA;VIZIANAGARAM&amp;#xA;VISAKHAPATNAM&amp;#xA;EAST GODAVARI&amp;#xA;WEST GODAVARI&amp;#xA;KRISHNA&amp;#xA;GUNTUR&amp;#xA;PRAKASAM&amp;#xA;NELLORE&amp;#xA;CHITTOOR&amp;#xA;ANANTHAPURAM&amp;#xA;KADAPA&amp;#xA;KURNOOL&amp;#xA;DONE BY GOVT&amp;#xA;&amp;#xA;&amp;#x9;&amp;#xA;&amp;#x9;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;' type='' class='' aaname='                 ' check:text='FILL NOTARY ADVOCATE Details&amp;#xA;&amp;#xA; Requirement  |  AP-ADVOCATES.xlsx | Solution   | End2End(Source Code) &amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;NOTARY ADVOCATE NAME&amp;#xA;AREA OF PRACTICE&amp;#xA;District&amp;#xA;&amp;#xA;  VIZIANAGARAM  &amp;#xA;  VISAKHAPATNAM  &amp;#xA;  EAST GODAVARI  &amp;#xA;  WEST GODAVARI  &amp;#xA;  KRISHNA  &amp;#xA;  GUNTUR  &amp;#xA;  PRAKASAM  &amp;#xA;  NELLORE  &amp;#xA;  CHITTOOR  &amp;#xA;  ANANTHAPURAM  &amp;#xA;  KADAPA  &amp;#xA;  KURNOOL  &amp;#xA;  DONE BY GOVT &amp;#xA;&amp;#xA;&amp;#xA;&amp;#xA;Submit Notary' /&gt;" Guid="87028562-5ded-44a0-a6b2-2c508f818501" InformativeScreenshot="6dffd8677b6932e8b1005458778c51c5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='botsDNA-Notary' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>

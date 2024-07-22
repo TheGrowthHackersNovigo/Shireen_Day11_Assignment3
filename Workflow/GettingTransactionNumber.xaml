@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1148,1714</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1148,1963.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GettingTransactionNumber_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -47,6 +47,7 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Models</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -102,43 +103,45 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GettingTransactionNumber" sap:VirtualizedContainerService.HintSize="1158,1649" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Check whether the transaction number appears, the retrieve the transaction number and update the data row in the excel, If the page is not loading then throw system exception" DisplayName="GettingTransactionNumber" sap:VirtualizedContainerService.HintSize="1158,1898.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="TransactionNumber" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: botsDNA-Notary" sap:VirtualizedContainerService.HintSize="1096,1561" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: botsDNA-Notary" sap:VirtualizedContainerService.HintSize="1096,1780" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do : Capture transaction number" sap:VirtualizedContainerService.HintSize="1062,1321" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Do : Capture transaction number" sap:VirtualizedContainerService.HintSize="1062,1538" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State 'Transaction Number'" sap:VirtualizedContainerService.HintSize="1000,1231" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Timeout="5" Version="V3">
+            <uix:NCheckState DisplayName="Check App State 'Transaction Number'" sap:VirtualizedContainerService.HintSize="1000,1447.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;).ToString)]" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears : If the page appears" sap:VirtualizedContainerService.HintSize="496,949" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Target appears : If the page appears" sap:VirtualizedContainerService.HintSize="496,1200.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="text" DelayBefore="1" DisplayName="Get Attribute 'Transaction Number80511…'" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[TransactionNumber]" ScopeIdentifier="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Version="V3">
+                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="text" DelayBefore="1" DisplayName="Get Attribute 'Transaction Number80511…'" sap:VirtualizedContainerService.HintSize="434,243.33333333333334" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[TransactionNumber]" ScopeIdentifier="9eebaa70-3397-4580-9c38-a1d12cadd4eb" Version="V3">
                     <uix:NGetAttributeGeneric.Target>
                       <uix:TargetAnchorable BrowserURL="https://botsdna.com/notaries/Thanks.html" DesignTimeRectangle="16, 552, 1584, 106" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' aaname='Transaction Number   ' check:innerText='Transaction Number&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;80511175' /&gt;" Guid="237cbe1d-5502-4f53-934c-99c27768d226" InformativeScreenshot="70746ce5a4ea6f0b2c91a358ff04f83d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='botsdna.com/notaries/Thanks.html' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                     </uix:NGetAttributeGeneric.Target>
                   </uix:NGetAttributeGeneric>
-                  <Assign DisplayName="Assign: Transaction Number" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign DisplayName="Assign: Transaction Number" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[TransactionNumber]</OutArgument>
                     </Assign.To>
@@ -146,19 +149,27 @@
                       <InArgument x:TypeArguments="x:String">[TransactionNumber.Replace("Transaction Number","")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message : Transaction number" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Transaction number for &quot;+in_TransactionItem(&quot;SL.NO.&quot;).ToString+&quot; is &quot;+TransactionNumber]" />
-                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="Transaction Number" DisplayName="Update Row Item : Transaction number" sap:VirtualizedContainerService.HintSize="434,224" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[in_TransactionItem]" Value="[TransactionNumber]" />
-                  <uix:NNavigateBrowser DisplayName="Navigate Browser - Go Back" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
+                  <ui:LogMessage DisplayName="Log Message : Transaction number" sap:VirtualizedContainerService.HintSize="434,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Transaction number for &quot;+in_TransactionItem(&quot;SL.NO.&quot;).ToString+&quot; is &quot;+TransactionNumber]" />
+                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="Transaction Number" DisplayName="Update Row Item : Transaction number" sap:VirtualizedContainerService.HintSize="434,230" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[in_TransactionItem]" Value="[TransactionNumber]" />
+                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="Exception" DisplayName="Update Row Item : No exception" sap:VirtualizedContainerService.HintSize="434,230" sap2010:WorkflowViewState.IdRef="UpdateRowItem_2" Row="[in_TransactionItem]" Value="[&quot;Success&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UpdateRowItem>
+                  <uix:NNavigateBrowser DisplayName="Navigate Browser - Go Back" sap:VirtualizedContainerService.HintSize="434,110" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Target does not appear : If the page does not appear" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Target does not appear : If the page does not appear" sap:VirtualizedContainerService.HintSize="450,208" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Throw DisplayName="Throw : System exception" Exception="[new SystemException(&quot;Page not loading&quot;)]" sap:VirtualizedContainerService.HintSize="388,115" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="Throw :Business exception" Exception="[new SystemException(in_Config(&quot;BusinessException&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </uix:NCheckState.IfNotExists>
               <uix:NCheckState.Target>
